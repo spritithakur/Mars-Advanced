@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="21fee4f7-995e-4eea-9f11-51568e7b35d1" activeEnvironment="Default" name="isbnservice_5" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4d5185d4-ebaa-4992-ad3a-dc09ab7edddb" wsaVersion="NONE" name="ISBNServiceSoapBinding" type="wsdl" bindingName="{http://webservices.daehosting.com/ISBN}ISBNServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.daehosting.com/services/isbnservice.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint></con:endpoints><con:operation id="b1c468b6-f3d9-4e28-99a0-2c586f0a9a81" isOneWay="false" action="" name="IsValidISBN10" bindingOperationName="IsValidISBN10" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="731b5f7e-d8d5-4a22-a412-13b3a14aa245" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <isbn:IsValidISBN10>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN10>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request"/></con:call></con:operation><con:operation id="6d2c1348-b333-4dbe-b02b-7b84976c4ed7" isOneWay="false" action="" name="IsValidISBN13" bindingOperationName="IsValidISBN13" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4b944026-75b0-44d3-b766-1e6e1c656c7f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <isbn:IsValidISBN13>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN13>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="845470fb-c40c-4dad-9d83-13daac8c5c7a" wsaVersion="NONE" name="ISBNServiceSoapBinding12" type="wsdl" bindingName="{http://webservices.daehosting.com/ISBN}ISBNServiceSoapBinding12" soapVersion="1_2" anonymous="optional" definition="http://webservices.daehosting.com/services/isbnservice.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.daehosting.com/services/isbnservice.wso?WSDL"><con:part><con:url>http://webservices.daehosting.com/services/isbnservice.wso?WSDL</con:url><con:content><![CDATA[<definitions name="ISBNService" targetNamespace="http://webservices.daehosting.com/ISBN" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://webservices.daehosting.com/ISBN">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://webservices.daehosting.com/ISBN">
+      <xs:element name="IsValidISBN13">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISBN" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN13Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsValidISBN13Result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN10">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISBN" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN10Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsValidISBN10Result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="IsValidISBN13SoapRequest">
+    <part name="parameters" element="tns:IsValidISBN13"/>
+  </message>
+  <message name="IsValidISBN13SoapResponse">
+    <part name="parameters" element="tns:IsValidISBN13Response"/>
+  </message>
+  <message name="IsValidISBN10SoapRequest">
+    <part name="parameters" element="tns:IsValidISBN10"/>
+  </message>
+  <message name="IsValidISBN10SoapResponse">
+    <part name="parameters" element="tns:IsValidISBN10Response"/>
+  </message>
+  <portType name="ISBNServiceSoapType">
+    <operation name="IsValidISBN13">
+      <documentation>The test is done by calculation on the first 12 digits and compare the result with the checksum number at the end. You have to pass a 13 digits number.</documentation>
+      <input message="tns:IsValidISBN13SoapRequest"/>
+      <output message="tns:IsValidISBN13SoapResponse"/>
+    </operation>
+    <operation name="IsValidISBN10">
+      <documentation>The test is done by calculation on the first 9 digits and compare the result with the checksum number at the end. You have to pass a 10 digits number or 8 digits and an X.</documentation>
+      <input message="tns:IsValidISBN10SoapRequest"/>
+      <output message="tns:IsValidISBN10SoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="ISBNServiceSoapBinding" type="tns:ISBNServiceSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="IsValidISBN13">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsValidISBN10">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="ISBNServiceSoapBinding12" type="tns:ISBNServiceSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="IsValidISBN13">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsValidISBN10">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ISBNService">
+    <documentation>DataFlex Web Service to validate ISBN numbers.</documentation>
+    <port name="ISBNServiceSoap" binding="tns:ISBNServiceSoapBinding">
+      <soap:address location="http://webservices.daehosting.com/services/isbnservice.wso"/>
+    </port>
+    <port name="ISBNServiceSoap12" binding="tns:ISBNServiceSoapBinding12">
+      <soap12:address location="http://webservices.daehosting.com/services/isbnservice.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint></con:endpoints><con:operation id="6b3cc340-3dbb-4563-9302-9b26cc6f41da" isOneWay="false" action="" name="IsValidISBN10" bindingOperationName="IsValidISBN10" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5a7fd49d-aa87-4d82-b1ca-6659e2971eff" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN10>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN10>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request"/></con:call></con:operation><con:operation id="707e1e6a-14c2-467e-99c8-89ebb76ccdcb" isOneWay="false" action="" name="IsValidISBN13" bindingOperationName="IsValidISBN13" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb097574-761b-4c3c-852a-61da164cf4ec" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN13>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN13>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request"/></con:call></con:operation></con:interface><con:testSuite id="43e9fe98-40e5-46a3-81d8-60da0d0830da" name="ISBNServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d3840b32-1367-4b4f-8c59-bc34d64e9780" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IsValidISBN10 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="741a57ee-d709-4649-80a0-6aa587eb30a2" name="IsValidISBN10"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ISBNServiceSoapBinding</con:interface><con:operation>IsValidISBN10</con:operation><con:request name="IsValidISBN10" id="0d24ae9d-8ef2-430f-b8c6-97ee056530c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <isbn:IsValidISBN10>
+         <isbn:sISBN>1932698183</isbn:sISBN>
+      </isbn:IsValidISBN10>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="5a3de547-1086-41fc-99d3-8c29c45ca690" name="Contains"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="9b48bef5-0f50-44ac-bd38-c3ee5a28611c" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="429a59ac-f391-4f5a-8d5d-0748fbe22bf8" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://webservices.daehosting.com/ISBN';
+//*:IsValidISBN10Result</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="1b4039b6-576c-4ff2-9245-d15672c4aac4" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://webservices.daehosting.com/ISBN';
+//*:IsValidISBN10Result</path><content>&lt;m:IsValidISBN10Result xmlns:m="http://webservices.daehosting.com/ISBN">true&lt;/m:IsValidISBN10Result></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="92beb8e9-b43a-482c-9d59-6cf2c672d109" name="Script Assertion"><con:configuration><scriptText>
+//Check response time
+assert messageExchange.timeTaken &lt; 8000
+//for XML Response
+import com.eviware.soapui.support.XmlHolder
+def xmlresponse=messageExchange.response.responseContent
+def parsexmlresponse=new XmlHolder(xmlresponse)
+log.info parsexmlresponse.getNodeValue("//m:IsValidISBN10Result")
+
+//Check for Endpoint
+def endpoint = "http://webservices.daehosting.com/services/isbnservice.wso"
+assert messageExchange.getEndpoint() == endpoint
+log.info messageExchange.getEndpoint()
+//Validation for Header
+def expectedHeader = ["Header"]
+def headers = messageExchange.response.responseHeaders
+assert messageExchange.responseHeaders["Content-Type"] != "text/xml;charset=UTF-8"
+//Check for attachments
+assert messageExchange.responseAttachments.length == 0
+
+//TO get the response
+def resp = messageExchange.responseContentAsXml.toString()
+log.info resp
+
+</scriptText></con:configuration></con:assertion><con:assertion type="SOAP Response" id="17ae7bcf-53de-4301-8d7a-67cbe6dcce17" name="SOAP Response"/><con:assertion type="Response SLA Assertion" id="9b039258-fdc6-4c17-8538-dadde7047421" name="Response SLA"><con:configuration><SLA>4000</SLA></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="76bb4a38-e1cb-47a9-b839-98111b8ad7cc" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="TestStepProperty" id="305e3d32-9643-4c7f-976f-3127e944fbc7"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>ISBN10</con:name><con:value>1932698183</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="GetSetProperty" id="92ad19e4-6c30-468b-a197-d385adedfd7d"><con:settings/><con:config><script>
+/***********Get Property*****/
+
+//Get for ISBN10 Project
+def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue("ISBN10");
+log.info(projectProperty);
+
+//TestSuite
+def testSuiteProperty = testRunner.testCase.testSuite.getPropertyValue("ISBN10");
+log.info (testSuiteProperty);
+
+//TestCase
+def testCaseProperty = testRunner.testCase.getPropertyValue("ISBN10");
+log.info (testCaseProperty);
+
+//TestStep
+def testStepProperty = testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("ISBN10");
+log.info (testStepProperty);
+
+
+
+/************Set Property**********/
+/*
+//Set Property for Project
+testRunner.testCase.testSuite.project.setPropertyValue("ISBN10", "1932698183");
+log.info(testRunner.testCase.testSuite.project.getPropertyValue("ISBN10"))
+
+//Set Property for TestSuite
+testRunner.testCase.testSuite.setPropertyValue("ISBN10", "1932698183");
+log.info(testRunner.testCase.testSuite.getPropertyValue("ISBN10"))
+
+//Set Property for TestCase
+testRunner.testCase.setPropertyValue("ISBN10", "1932698183");
+log.info(testRunner.testCase.getPropertyValue("ISBN10"))
+
+//Set Property for TestStep
+testRunner.testCase.getTestStepByName("TestStepProperty").setPropertyValue("ISBN10","1932698183");
+log.info(testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("ISBN10"))
+
+*/
+
+
+//Loop Through Properties
+
+testRunner.testCase.properties.each
+{
+	key,value ->
+	log.info (testRunner.testCase.getPropertyValue(key))
+}
+
+
+
+/*
+// Add The Property into Project Level
+
+testRunner.testCase.testSuite.project.addProperty("ISBN10");
+
+
+//Remove the recently added property into Project Level
+
+testRunner.testCase.testSuite.project.removeProperty("ISBN10");
+*/</script></con:config></con:testStep><con:testStep type="groovy" name="UseProperty" id="de680850-d742-48e6-bc15-fcfbe5d07464"><con:settings/><con:config><script>/*******Access values from project, testsuite, test case and test step
+ * 
+ */
+def name = context.expand ('${TestStepProperty#ISBN10}')
+log.info ("Property name is : "+name);
+</script></con:config></con:testStep><con:testStep type="groovy" name="RunTestCase" id="7b3ee2fc-079b-4b83-9202-5d65c8242e68"><con:settings/><con:config><script>
+//this is if we want to run another test case in this suite
+def tCase = testRunner.testCase.testSuite.testCases["IsValidISBN13 TestCase"]
+
+prop = new com.eviware.soapui.support.types.StringToObjectMap()
+runner = tCase.run(new com.eviware.soapui.support.types.StringToObjectMap(),false);
+
+log.info ("  >>>   "+runner.getStatus().toString())
+
+/*
+
+//Get the test case name
+log.info ("   TestCase Name is : "+testRunner.testCase.name);
+*/</script></con:config></con:testStep><con:testStep type="groovy" name="Run ISBN10 Script" id="715ea047-a625-416b-82a4-37fd4b9c1c52"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+
+log.info context.expand('${#IsValidISBN10 TestCase#description}')
+
+/******Run ISBN10 Script****/
+
+
+//Get IsValidISBN10  request property, returning XML
+def IsValidISBN10Request = testRunner.testCase.testSuite.testCases["IsValidISBN10 TestCase"].testSteps["IsValidISBN10"].getPropertyValue("Request")
+def xmlIsValidISBN10Request = new XmlHolder(IsValidISBN10Request);
+xmlIsValidISBN10Request.setNodeValue("//*:IsValidISBN10Result",true)
+
+
+//Get new Xml with added Node value and assign to variable
+def newIsValidISBN10XmlRequest = xmlIsValidISBN10Request.getXml()
+
+//set request property value of IsValidISBN10  test case with new xml variables
+testRunner.testCase.testSuite.testCases["IsValidISBN10 TestCase"].testSteps["IsValidISBN10"].setPropertyValue("Request", newIsValidISBN10XmlRequest)
+
+//call the service IsValidISBN10  after IsValidISBN10 request with new XML variables.
+def IsValidISBN10TestStep = testRunner.testCase.testSuite.testCases["IsValidISBN10 TestCase"].testSteps["IsValidISBN10"]
+//Assign to context
+def contextIsValidISBN10 = new WsdlTestRunContext(IsValidISBN10TestStep)
+
+//service.run(testRunner, context)
+IsValidISBN10TestStep.run(testRunner, contextIsValidISBN10)
+
+
+//Validate IsValidISBN10 
+def IsValidISBN10Response= testRunner.testCase.testSuite.testCases["IsValidISBN10 TestCase"].testSteps["IsValidISBN10"].getPropertyValue("Response")
+def xmlIsValidISBN10Response = new XmlHolder(IsValidISBN10Response)
+def ResponseValue = xmlIsValidISBN10Response.getNodeValue("//m:IsValidISBN10Result")
+log.info xmlIsValidISBN10Response.getNodeValue("//m:IsValidISBN10Result")
+</script></con:config></con:testStep><con:properties><con:property><con:name>ISBN10</con:name><con:value>1932698183</con:value></con:property><con:property><con:name>ISBN13</con:name><con:value>9781932698183</con:value></con:property></con:properties></con:testCase><con:testCase id="18811951-df84-4ada-8b5b-6e955fdcded6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IsValidISBN13 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6df2772b-f70e-4ebc-a5bb-3b0ee8f64a7a" name="IsValidISBN13"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ISBNServiceSoapBinding</con:interface><con:operation>IsValidISBN13</con:operation><con:request name="IsValidISBN13" id="ec265f6f-c31b-41f8-a7ba-7131feaf9b6d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <isbn:IsValidISBN13>
+         <isbn:sISBN>9781932698183</isbn:sISBN>
+      </isbn:IsValidISBN13>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="GroovyScriptAssertion" id="daacf6b6-9d30-405f-b892-d2a3490d955c" name="Script Assertion"><con:configuration><scriptText>
+//Check response time
+assert messageExchange.timeTaken &lt; 8000
+//for XML Response
+import com.eviware.soapui.support.XmlHolder
+def xmlresponse=messageExchange.response.responseContent
+def parsexmlresponse=new XmlHolder(xmlresponse)
+log.info parsexmlresponse.getNodeValue("//m:IsValidISBN13Result")
+
+//Validation for Header
+def expectedHeader = ["Header"]
+def headers = messageExchange.response.responseHeaders
+assert messageExchange.responseHeaders["Content-Type"] != "text/xml;charset=UTF-8"
+//Check for Endpoint
+def endpoint = "http://webservices.daehosting.com/services/isbnservice.wso"
+assert messageExchange.getEndpoint() == endpoint
+log.info messageExchange.getEndpoint()
+
+//Check for attachments
+assert messageExchange.responseAttachments.length == 0
+
+//TO get the response
+def resp = messageExchange.responseContentAsXml.toString()
+log.info resp</scriptText></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="e823445b-25e4-463c-8176-ba49b61f55a9" name="Response SLA"><con:configuration><SLA>4000</SLA></con:configuration></con:assertion><con:assertion type="SOAP Response" id="20af47fc-0ab2-4633-821d-a0ba7062a1a9" name="SOAP Response"/><con:assertion type="XPath Match" id="867a43ed-8c3e-4914-877c-a8333320a741" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://webservices.daehosting.com/ISBN';
+//*:IsValidISBN13Result</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="1b660986-2c88-4c2c-9095-94292fc9d82f" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace m='http://webservices.daehosting.com/ISBN';
+//*:IsValidISBN13Result</path><content>&lt;m:IsValidISBN13Result xmlns:m="http://webservices.daehosting.com/ISBN">true&lt;/m:IsValidISBN13Result></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="b3fda2dd-34b0-495b-9e4b-2adb5b7e388f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="d3c762cd-3808-4a4a-8824-8c1deda4ee09" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="TestStepProperty" id="37d68cf0-6205-4460-8e13-259d7ee18680"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>ISBN13</con:name><con:value>9781932698183</con:value></con:property><con:property><con:name>ISBN14</con:name><con:value>9781932698183</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="GetSetProperty" id="17b11450-a914-4aca-afb3-9b453d07eeda"><con:settings/><con:config><script>/***************Get*********/
+/*
+//Get for ISBN13 Project
+def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue("ISBN13");
+log.info(projectProperty);
+
+//TestSuite
+def testSuiteProperty = testRunner.testCase.testSuite.getPropertyValue("ISBN13");
+log.info (testSuiteProperty);
+
+//TestCase
+def testCaseProperty = testRunner.testCase.getPropertyValue("ISBN13");
+log.info (testCaseProperty);
+
+//TestStep
+def testStepProperty = testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("ISBN13");
+log.info (testStepProperty);
+
+*/
+
+
+
+/************Set Property**********/
+
+//Set Property for Project
+testRunner.testCase.testSuite.project.setPropertyValue("ISBN14", "9781932698183");
+log.info(testRunner.testCase.testSuite.project.getPropertyValue("ISBN14"))
+
+//Set Property for TestSuite
+testRunner.testCase.testSuite.setPropertyValue("ISBN14", "9781932698183");
+log.info(testRunner.testCase.testSuite.getPropertyValue("ISBN14"))
+
+//Set Property for TestCase
+testRunner.testCase.setPropertyValue("ISBN14", "9781932698183");
+log.info(testRunner.testCase.getPropertyValue("ISBN14"))
+
+//Set Property for TestStep
+testRunner.testCase.getTestStepByName("TestStepProperty").setPropertyValue("ISBN14","9781932698183");
+log.info(testRunner.testCase.getTestStepByName("TestStepProperty").getPropertyValue("ISBN14"))
+
+
+/*
+
+//Loop Through Properties
+
+testRunner.testCase.properties.each
+{
+	key,value ->
+	log.info (testRunner.testCase.getPropertyValue(key))
+}
+
+
+
+/*
+// Add The Property into Project Level
+
+testRunner.testCase.testSuite.project.addProperty("ISBN11");
+
+
+//Remove the recently added property into Project Level
+
+testRunner.testCase.testSuite.project.removeProperty("ISBN11");
+*/</script></con:config></con:testStep><con:testStep type="groovy" name="UseProperty" id="a4ac412d-4c03-4e00-96ee-cdad90026cb5"><con:settings/><con:config><script>/*******Access values from project, testsuite, test case and test step
+ * 
+ */
+def name = context.expand ('${TestStepProperty#ISBN13}')
+log.info ("Property name is : "+name);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Run ISBN13 Script" id="be962675-ce40-4869-bff7-e0f34bf5dcef"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+
+log.info context.expand('${#IsValidISBN10 TestCase#description}')
+
+
+/******Run ISBN13 Script****/
+
+
+//Get IsValidISBN13 request property, returning XML
+def IsValidISBN13Request = testRunner.testCase.testSuite.testCases["IsValidISBN13 TestCase"].testSteps["IsValidISBN13"].getPropertyValue("Request")
+def xmlIsValidISBN13Request = new XmlHolder(IsValidISBN13Request);
+xmlIsValidISBN13Request.setNodeValue("//*:IsValidISBN13Result",true)
+
+
+//Get new Xml with added Node value and assign to variable
+def newIsValidISBN13XmlRequest = xmlIsValidISBN13Request.getXml()
+
+//set request property value of IsValidISBN13  test case with new xml variables
+testRunner.testCase.testSuite.testCases["IsValidISBN13 TestCase"].testSteps["IsValidISBN13"].setPropertyValue("Request", newIsValidISBN13XmlRequest)
+
+//call the service IsValidISBN13  after IsValidISBN13 request with new XML variables.
+def IsValidISBN13TestStep = testRunner.testCase.testSuite.testCases["IsValidISBN13 TestCase"].testSteps["IsValidISBN13"]
+//Assign to context
+def contextIsValidISBN13 = new WsdlTestRunContext(IsValidISBN13TestStep)
+
+//service.run(testRunner, context)
+IsValidISBN13TestStep.run(testRunner, contextIsValidISBN13)
+
+
+//Validate IsValidISBN13
+def IsValidISBN13Response= testRunner.testCase.testSuite.testCases["IsValidISBN13 TestCase"].testSteps["IsValidISBN13"].getPropertyValue("Response")
+def xmlIsValidISBN13Response = new XmlHolder(IsValidISBN13Response)
+def ResponseValue = xmlIsValidISBN13Response.getNodeValue("//m:IsValidISBN13Result")
+log.info xmlIsValidISBN13Response.getNodeValue("//m:IsValidISBN13Result")
+
+</script></con:config></con:testStep><con:properties><con:property><con:name>ISBN13</con:name><con:value>9781932698183</con:value></con:property><con:property><con:name>ISBN14</con:name><con:value>9781932698183</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>ISBN10</con:name><con:value>1932698183</con:value></con:property><con:property><con:name>ISBN13</con:name><con:value>9781932698183</con:value></con:property><con:property><con:name>ISBN14</con:name><con:value>9781932698183</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>ISBN10</con:name><con:value>1932698183</con:value></con:property><con:property><con:name>ISBN13</con:name><con:value>9781932698183</con:value></con:property><con:property><con:name>ISBN14</con:name><con:value>9781932698183</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

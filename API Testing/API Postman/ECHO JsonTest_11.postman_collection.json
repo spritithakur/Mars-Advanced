@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "df3cd8e9-dffd-4ad3-ae28-12d17efc3bb8",
+		"name": "ECHO JsonTest_11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23437965"
+	},
+	"item": [
+		{
+			"name": "Positive Scenarios",
+			"item": [
+				{
+					"name": "Insert Key Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Assertion:1- Status code check\r",
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code check\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify value in response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"two\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"value\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.one).to.eql(\"two\");\r",
+									"       pm.expect(jsonData.key).to.eql(\"value\");\r",
+									"});\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"one\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"key\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"one\",\r",
+									"    \"key\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newvalueURL}}/one/two/key/value",
+							"host": [
+								"{{newvalueURL}}"
+							],
+							"path": [
+								"one",
+								"two",
+								"key",
+								"value"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative Scenarios",
+			"item": [
+				{
+					"name": "Get Response with providing invalid Payload structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Error: Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ECHO JSON\" : [\r\n    \r\n{\r\n    \"one\": \"two\"\r\n\r\n},\r\n{\r\n    \"key\":\"value\"\r\n    \r\n}\r\n    ]\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newvalueURL}}/one/two/key/value",
+							"host": [
+								"{{newvalueURL}}"
+							],
+							"path": [
+								"one",
+								"two",
+								"key",
+								"value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get response with invalid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"parse_time_nanoseconds\", jsonData.parse_time_nanoseconds);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newvalueURL}}",
+							"host": [
+								"{{newvalueURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with invalid HTTP Header value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\" <p>The requested URL <code>/one/two/key/value</code> was not found on this server.  <ins>That’s all we know.</ins>\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newvalueURL}}/one/two/key/value",
+							"host": [
+								"{{newvalueURL}}"
+							],
+							"path": [
+								"one",
+								"two",
+								"key",
+								"value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with changing the Request  Method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{newvalueURL}}/one/two/key/value",
+							"host": [
+								"{{newvalueURL}}"
+							],
+							"path": [
+								"one",
+								"two",
+								"key",
+								"value"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

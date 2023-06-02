@@ -1,0 +1,2408 @@
+{
+	"info": {
+		"_postman_id": "638346e4-4743-477c-aaad-eb3fef8eb57d",
+		"name": "Reqres API_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23437965"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Successful User Login with valid credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"});\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"   pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"token\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check Json Key Value pairs in Response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.token).to.eql(\"QpwL5tke4Pnpja7X4\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.collectionVariables.set(\"email\", \"eve.holt@reqres.in\");\r",
+									"pm.collectionVariables.set(\"password\",\"sri\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Successful User Registration with valid credentials",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.collectionVariables.set(\"email\", \"eve.holt@reqres.in\");\r",
+									"pm.collectionVariables.set(\"password\",\"sri\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"   pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"token\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(4);\r",
+									"    pm.expect(jsonData.token).to.eql(\"QpwL5tke4Pnpja7X4\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Operation",
+			"item": [
+				{
+					"name": "Get Single User Detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches user's info\", function () {\r",
+									"    pm.expect(jsonData.data.id).to.eql(pm.collectionVariables.get(\"uId\"));\r",
+									"    pm.expect(jsonData.data.email).to.eql(\"eve.holt@reqres.in\");\r",
+									"});\r",
+									"//Header Value Check\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"  pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"//Json Object Validation\r",
+									"pm.test(\"Check JSON Key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data.id).to.eql(4);\r",
+									"    pm.expect(jsonData.data.first_name).to.eql(\"Eve\");\r",
+									"    pm.expect(jsonData.data.last_name).to.eql(\"Holt\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"var schema ={\r",
+									"\r",
+									" \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"first_name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"last_name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"avatar\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"email\",\r",
+									"        \"first_name\",\r",
+									"        \"last_name\",\r",
+									"        \"avatar\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"uId\",4);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/{{USERID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{USERID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a list of users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches user's info\", function () {\r",
+									" pm.expect(jsonData.data[0].email).to.eql(\"george.bluth@reqres.in\");\r",
+									"  pm.expect(jsonData.data[0].id).to.eql(1);\r",
+									"   \r",
+									"});\r",
+									"\r",
+									"//Json Object Validation\r",
+									"pm.test(\"Check JSON Key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.page).to.eql(1);\r",
+									"    pm.expect(jsonData.per_page).to.eql(6);\r",
+									"    pm.expect(jsonData.total).to.eql(12);\r",
+									"    pm.expect(jsonData.total_pages).to.eql(2);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const schema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"per_page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total_pages\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"page\",\r",
+									"    \"per_page\",\r",
+									"    \"total\",\r",
+									"    \"total_pages\",\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Validate json schema format\", function()\r",
+									"{\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single user not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"  pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \r",
+									"  \"type\": \"object\"\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Validate json schema format\", function()\r",
+									"{\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a list of resources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//Check the status code\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//Check the Header value\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data[0].id).to.eql(1);\r",
+									"    pm.expect(jsonData.data[0].name).to.eql(\"cerulean\");\r",
+									"    pm.expect(jsonData.data[0].year).to.eql(2000);\r",
+									"\r",
+									"     pm.expect(jsonData.data[1].id).to.eql(2);\r",
+									"      pm.expect(jsonData.data[1].name).to.eql(\"fuchsia rose\");\r",
+									"      pm.expect(jsonData.data[1].year).to.eql(2001);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"//Json schema Validation\r",
+									"{\r",
+									"\r",
+									"  var schema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"per_page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total_pages\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"page\",\r",
+									"    \"per_page\",\r",
+									"    \"total\",\r",
+									"    \"total_pages\",\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"}\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"\r",
+									"//Response time\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single resource",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data.id).to.eql(1);\r",
+									"    pm.expect(jsonData.data.name).to.eql(\"cerulean\");\r",
+									"    pm.expect(jsonData.data.year).to.eql(2000);\r",
+									"    pm.expect(jsonData.data.color).to.eql(\"#98B2D1\");\r",
+									"    pm.expect(jsonData.data.pantone_value).to.eql(\"15-4020\");\r",
+									"});\r",
+									"\r",
+									"//Check the Header value\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"//Validate the JSON Schema\r",
+									"var schema = {\r",
+									"    \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"color\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"pantone_value\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"year\",\r",
+									"        \"color\",\r",
+									"        \"pantone_value\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									" \r",
+									" pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"\r",
+									"//Response time\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single resource not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \r",
+									"  \"type\": \"object\"\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Validate json schema format\", function()\r",
+									"{\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"//Response time\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a delayed response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate delay response >3s\", function()\r",
+									"{\r",
+									"    pm.expect(pm.response.responseTime).to.be.greaterThan(pm.collectionVariables.get(\"delay\")*1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"       pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pair in Response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.page).to.eql(1);\r",
+									"    pm.expect(jsonData.per_page).to.eql(6);\r",
+									"    pm.expect(jsonData.total).to.eql(12);\r",
+									"    pm.expect(jsonData.data[0].id).to.eql(1);\r",
+									"    pm.expect(jsonData.data[0].email).to.eql(\"george.bluth@reqres.in\");\r",
+									"    pm.expect(jsonData.data[0].first_name).to.eql(\"George\");\r",
+									"    pm.expect(jsonData.data[0].last_name).to.eql(\"Bluth\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"per_page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total_pages\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"page\",\r",
+									"    \"per_page\",\r",
+									"    \"total\",\r",
+									"    \"total_pages\",\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Response time\r",
+									"pm.test(\"Response time is  above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"delay\",1);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users?delay=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "delay",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.collectionVariables.set(\"name\", \"spriti\");\r",
+									"pm.collectionVariables.set(\"job\",\"leader\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Body matches user's info\", function () {\r",
+									"    pm.expect(jsonData.name).to.eql(\"spriti\");\r",
+									"    pm.expect(jsonData.job).to.eql(\"leader\");\r",
+									"});\r",
+									"//Header Value Check\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"  pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"spriti\");\r",
+									"      pm.expect(jsonData.job).to.eql(\"leader\");\r",
+									"        pm.environment.set(\"id\", jsonData.id);\r",
+									"\r",
+									"    \r",
+									"       \r",
+									"});\r",
+									"\r",
+									"\r",
+									"var schema ={\r",
+									"     \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"job\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"createdAt\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"name\",\r",
+									"    \"job\",\r",
+									"    \"id\",\r",
+									"    \"createdAt\"\r",
+									"  ]\r",
+									"\r",
+									"}\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name\", \"spriti\");\r",
+									"pm.collectionVariables.set(\"job\",\"leader\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var requestData = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check JSON key value pair in response\",function(){\r",
+									"    pm.expect(jsonData.name).is.eql(requestData.name);\r",
+									"    pm.expect(jsonData.job).is.eql(requestData.job);\r",
+									"})\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"job\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"       pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"job\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"updatedAt\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"name\",\r",
+									"    \"job\",\r",
+									"    \"updatedAt\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful PUT Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"       pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful DELETE Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([204,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative Scenarios",
+			"item": [
+				{
+					"name": "Unsuccessful Registration with invalid credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.json().error).to.eql(\"Missing password\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check Json key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"Missing password\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"   \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,400]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"spriti@fife\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unsuccessful login with Invalid credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.json().error).to.eql(\"Missing password\");\r",
+									"});\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check JSON Key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"Missing password\");\r",
+									"});\r",
+									"var schema = {\r",
+									"   \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"spriti@fife\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unsuccessful login with invalid email,wrong Http parameter value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Unsuccessful login with invalid email\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql('user not found');\r",
+									"});\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"        pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"var schema =\r",
+									"{\r",
+									"  \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,201]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\": \"eve.holtreqres.in\",\r\n    \"password\": \"spritiee\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unsuccessful Registration without email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.json().error).to.eql(\"Missing email or username\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"});\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									" \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.eql(\"Missing email or username\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"password\": \"sri\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the existing user with change method",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name\", \"spriti\");\r",
+									"pm.collectionVariables.set(\"job\",\"HR\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"      pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "COPY",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/{{userID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single resource with invalid Header Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html\");\r",
+									"       pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"close\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true,
+							"user-agent": true,
+							"accept-encoding": true,
+							"accept": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an employee record with invalid employee ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User with wrong Payload structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Error\");\r",
+									"});\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n\"name\": \"Hello, API testing has the following types of Negative test. \r\n         Field type: In this, post the message with the invalid data type of field's value e.g (Select Integer data type in place of String data. It should display an error response code. Required Fields: Test the API by removing the required tags from the message. \r\n         It should return an error code.\",\r\n\r\n\r\n\"job\": \"Magnifier\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New user with invalid UUID in Path",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.collectionVariables.set(\"name\", \"spriti\");\r",
+									"pm.collectionVariables.set(\"job\",\"leader\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"CF-Cache-Status\")).to.eql(\"DYNAMIC\");\r",
+									"      pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/:api",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								":api"
+							],
+							"variable": [
+								{
+									"key": "api",
+									"value": "api:users"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://reqres.in",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "uId",
+			"value": ""
+		},
+		{
+			"key": "delay",
+			"value": ""
+		},
+		{
+			"key": "userID",
+			"value": ""
+		},
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "job",
+			"value": ""
+		},
+		{
+			"key": "123",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "aafd5e33-c27b-4efa-9f5e-dbb03696b915",
+		"name": "Reddit_6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23437965"
+	},
+	"item": [
+		{
+			"name": "Positive Scenarios",
+			"item": [
+				{
+					"name": "Reddit Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=UTF-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"Cache-Control\")).to.eql(\"private, max-age=3600\");\r",
+									"     pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Listing\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate JSON Key value pair in listing data response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql(\"Listing\");\r",
+									"    pm.expect(jsonData.data.geo_filter).to.eql(null);\r",
+									"    pm.expect(jsonData.data.dist).to.eql(27);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate Children data\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData.data.children[0].kind).to.eql(\"t3\");\r",
+									"     pm.expect(jsonData.data.children[1].data.approved_at_utc).to.eql(null);\r",
+									"    \r",
+									"});  \r",
+									"  \r",
+									"  const schema = {\r",
+									"  \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\":{\r",
+									"\r",
+									"           \"after\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"          \r",
+									"            \"dist\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"\r",
+									"            \"geo_filter\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"\r",
+									"      \r",
+									"          \"type\": \"array\",\r",
+									"          \"properties\": {\r",
+									"              \r",
+									"            \"kind\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"          \r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"             \"approved_at_utc\": {\r",
+									"                 \"type\": \"string\"\r",
+									"             },\r",
+									"\r",
+									"             \"subreddit\": {\r",
+									"                 \"type\":\"string\"\r",
+									"             },\r",
+									"          \r",
+									"          \r",
+									"          }\r",
+									"              }\r",
+									"  }\r",
+									"          \r",
+									"  }\r",
+									"  }\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Reddit}}/r/javascript.json",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								"javascript.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative Scenarios",
+			"item": [
+				{
+					"name": "Get response with invalid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"       pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"          pm.expect(pm.response.headers.get(\"Cache-control\")).to.eql(\"private, s-maxage=0, max-age=0, must-revalidate, no-store\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Reddit}}/r/javascript/XML",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								"javascript",
+								"XML"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with Illegal characters in Parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"    pm.expect(pm.response.headers.get(\"Cache-control\")).to.eql(\"private, s-maxage=0, max-age=0, must-revalidate\");\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Reddit}}/r/javascript?JSON=JSONVALUE&javascript.json&content=type",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								"javascript"
+							],
+							"query": [
+								{
+									"key": "JSON",
+									"value": "JSONVALUE"
+								},
+								{
+									"key": "javascript.json",
+									"value": null
+								},
+								{
+									"key": "content",
+									"value": "type"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response by changing Request Method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Check JSON key value pair in response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Not Found\");\r",
+									"    pm.expect(jsonData.error).to.eql(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=UTF-8\");\r",
+									"     pm.expect(pm.response.headers.get(\"Cache-Control\")).to.eql(\"private, max-age=3600\");\r",
+									"     pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"     \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"error\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{Reddit}}/r/javascript.json",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								"javascript.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with invalid UUID in Path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+									"       pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\");\r",
+									"          pm.expect(pm.response.headers.get(\"Cache-control\")).to.eql(\"private, s-maxage=0, max-age=0, must-revalidate\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Reddit}}/r/:JSON",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								":JSON"
+							],
+							"variable": [
+								{
+									"key": "JSON",
+									"value": "javascript"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with invalid HTTP Header value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html\");\r",
+									"    pm.expect(pm.response.headers.get(\"Cache-Control\")).to.eql(\"private, max-age=3600\");\r",
+									"     pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"close\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true,
+							"accept": true,
+							"accept-encoding": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Reddit}}/r/javascript.json",
+							"host": [
+								"{{Reddit}}"
+							],
+							"path": [
+								"r",
+								"javascript.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

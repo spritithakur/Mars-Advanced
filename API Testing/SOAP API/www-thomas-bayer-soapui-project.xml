@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3a7db9ac-09ab-489d-b0db-7d757b59776e" activeEnvironment="Default" name="Thomasbayer_4" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4340f945-9c6a-42c9-9eba-c7c2cd606932" wsaVersion="NONE" name="BLZServiceSOAP11Binding" type="wsdl" bindingName="{http://thomas-bayer.com/blz/}BLZServiceSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="http://www.thomas-bayer.com/axis2/services/BLZService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.thomas-bayer.com/axis2/services/BLZService?wsdl"><con:part><con:url>http://www.thomas-bayer.com/axis2/services/BLZService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://thomas-bayer.com/blz/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://thomas-bayer.com/blz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:documentation>BLZService</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://thomas-bayer.com/blz/">
+      <xsd:element name="getBank" type="tns:getBankType"/>
+      <xsd:element name="getBankResponse" type="tns:getBankResponseType"/>
+      <xsd:complexType name="getBankType">
+        <xsd:sequence>
+          <xsd:element name="blz" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBankResponseType">
+        <xsd:sequence>
+          <xsd:element name="details" type="tns:detailsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="detailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="bezeichnung" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="bic" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="ort" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="plz" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getBank">
+    <wsdl:part name="parameters" element="tns:getBank"/>
+  </wsdl:message>
+  <wsdl:message name="getBankResponse">
+    <wsdl:part name="parameters" element="tns:getBankResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="BLZServicePortType">
+    <wsdl:operation name="getBank">
+      <wsdl:input message="tns:getBank"/>
+      <wsdl:output message="tns:getBankResponse" wsaw:Action="http://thomas-bayer.com/blz/BLZService/getBankResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BLZServiceSOAP11Binding" type="tns:BLZServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap:operation style="document" soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BLZServiceSOAP12Binding" type="tns:BLZServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap12:operation style="document" soapAction=""/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BLZServiceHttpBinding" type="tns:BLZServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getBank">
+      <http:operation location="BLZService/getBank"/>
+      <wsdl:input>
+        <mime:content part="getBank" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getBank" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BLZService">
+    <wsdl:port name="BLZServiceSOAP11port_http" binding="tns:BLZServiceSOAP11Binding">
+      <soap:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+    <wsdl:port name="BLZServiceSOAP12port_http" binding="tns:BLZServiceSOAP12Binding">
+      <soap12:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+    <wsdl:port name="BLZServiceHttpport" binding="tns:BLZServiceHttpBinding">
+      <http:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint></con:endpoints><con:operation id="e8474e54-eb2d-4136-8d4f-b08eac92585c" isOneWay="false" action="" name="getBank" bindingOperationName="getBank" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1b0a305f-554e-4e35-a6a5-05bd3ca89672" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>26600000</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://thomas-bayer.com/blz/BLZServicePortType/getBankRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="2e57955e-fbe1-4dbb-87ee-94089eb8f62c" name="BLZTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="45dac066-ecf5-4a2c-948f-f499231c9e69" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="BLZService1" id="f787897d-9a9b-4bd8-a346-651bd908b98f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BLZServiceSOAP11Binding</con:interface><con:operation>getBank</con:operation><con:request name="BLZService1" id="962452f7-36e2-4e1a-a759-be8d77102491"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <blz:getBank>
+         <blz:blz>39000000</blz:blz>
+      </blz:getBank>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="30496caf-41d3-430e-991e-88191c699aa8"/><con:assertion type="Simple Contains" id="f0909d56-c447-4b2f-b05a-40167d1e4e11" name="Contains"><con:configuration><token>MARKDEF1390</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="40ab268d-b9e6-49f1-845c-ab19526d30f9" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="00a29eb8-b3dc-4143-8991-688639de9b84" name="XPath Match"><con:configuration><path>declare namespace ns1='http://thomas-bayer.com/blz/';
+declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+//ns1:ort</path><content>Aachen</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="71bd2fd0-0bec-458a-b34b-ef55642f82fa" name="XQuery Match"><con:configuration><path>declare namespace ns1='http://thomas-bayer.com/blz/';
+declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+//ns1:bic</path><content>&lt;ns1:bic xmlns:ns1="http://thomas-bayer.com/blz/">MARKDEF1390&lt;/ns1:bic></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="cb73546e-4e1d-4901-b25d-c40c62c5ff41" name="Script Assertion"><con:configuration><scriptText>//Validation for Header
+def expectedHeader = ["Header"]
+def headers = messageExchange.response.responseHeaders
+assert messageExchange.responseHeaders["Content-Type"] != "text/xml;charset=UTF-8"
+
+//Check response time
+assert messageExchange.timeTaken &lt; 8000
+//for XML Response
+import com.eviware.soapui.support.XmlHolder
+def xmlresponse=messageExchange.response.responseContent
+def parsexmlresponse=new XmlHolder(xmlresponse)
+log.info parsexmlresponse.getNodeValue("//ns1:ort")
+
+//Check for Endpoint
+def endpoint = "http://www.thomas-bayer.com/axis2/services/BLZService"
+assert messageExchange.getEndpoint() == endpoint
+log.info messageExchange.getEndpoint()
+
+//Check for attachments
+assert messageExchange.responseAttachments.length == 0
+
+//TO get the response
+def resp = messageExchange.responseContentAsXml.toString()
+log.info resp</scriptText></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="52e6086d-6947-4c17-84e8-cc0dd97cf157" name="Not Contains"><con:configuration><token>hi</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="389dc7d5-1b99-4106-897b-f8dce3c1b232" name="Not SOAP Fault"/><con:assertion type="Schema Compliance" id="5163b1cb-f43d-4c6c-9799-8c99ce49155a" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="TestStepProperty" id="def3c706-0a87-4815-b500-0112522164bb"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>blzcode_1</con:name><con:value>39000000</con:value></con:property><con:property><con:name>blzcode_2</con:name><con:value>38600000</con:value></con:property><con:property><con:name>blzcode_3</con:name><con:value>27000000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="UseProperty" id="ac0cc136-746e-4ede-8845-b43eb4bf6771"><con:settings/><con:config><script>/*******Access values from project, testsuite, test case and test step
+ * 
+ */
+def name = context.expand ('${TestStepProperty#blzcode_1}')
+log.info ("Property name is : "+name);
+</script></con:config></con:testStep><con:testStep type="groovy" name="RunRequestFromTestCase" id="1712bf34-a246-4552-bd25-5e2e6497954e"><con:settings/><con:config><script>/*
+//Run the Request from another test case that is available at same TestSuite
+project = testRunner.testCase.testSuite.project;
+tcase = project.testSuites["BLZTestSuite"].testCases["BLZService1"];
+tstep = tcase.getTestStepByName("BLZService1");
+
+
+def status = tstep.run(testRunner, context)
+def result = status.getStatus().toString();
+log.info("  >>>    "+result)
+*/
+
+
+
+//Run the request from same testcase that is available at same TestSuite
+def status = testRunner.runTestStepByName("BLZService1")
+log.info("  >>>>  "+status)
+def result = status.getStatus().toString();
+log.info("   >>> "+result)
+
+
+
+if(result == "OK") {
+	log.info("   >>>  Test Passed")
+	
+}else{
+	log.info("  >>> Test Failed")
+}
+
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="XML Parsing" id="438b35c1-7d88-4027-af02-e40fd8c36d1c"><con:settings/><con:config><script>//XML Parsing
+
+import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+def xmlReq =testRunner.testCase.testSteps["BLZService1"].getPropertyValue("Request")
+def blzcode_1 = testRunner.testCase.getPropertyValue("blzcode_1")
+def samplexmlreq = new XmlHolder(xmlReq)
+samplexmlreq.setNodeValue("//blz:getBank/blz:blz",blzcode_1)
+def FinalXML = samplexmlreq.getXml()
+testRunner.testCase.testSteps["BLZService1"].setPropertyValue("Request",FinalXML)
+
+
+//Sent the request using Groovy Script
+def BLZService1ReqTest = testRunner.testCase.testSteps["BLZService1"]
+def contextBLZService1ReqTest = new WsdlTestRunContext(BLZService1ReqTest)
+BLZService1ReqTest.run(testRunner,contextBLZService1ReqTest)
+
+//Verify the XML Response
+def BLZService1XMLResponse = testRunner.testCase.testSteps["BLZService1"].getPropertyValue("Response")
+def BLZService1XMLResponseFinal = new XmlHolder(BLZService1XMLResponse)
+def ResponseValue = BLZService1XMLResponseFinal.getNodeValue("//ns1:ort")
+log.info BLZService1XMLResponseFinal.getNodeValue("//ns1:ort")
+
+</script></con:config></con:testStep><con:properties><con:property><con:name>blzcode_1</con:name><con:value>39000000</con:value></con:property></con:properties></con:testCase><con:testCase id="c8f5ec00-cb70-4d60-b84e-73c01893a71c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Script" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Run the Script through Groovy" id="854f7eb9-6fe7-414b-a29b-508918e0592c"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+
+//context variable is used to access and modify properties of testcase
+//scope of context lies in TestCase only
+log.info context.expand('${#TestCase#description}')
+
+//Get BLZService1 request property, returning XML
+def BLZService1Request = testRunner.testCase.testSuite.testCases["TestCase"].testSteps["BLZService1"].getPropertyValue("Request")
+def xmlBLZService1Request = new XmlHolder(BLZService1Request);
+xmlBLZService1Request.setNodeValue("//blz:getBank/blz:blz",39000000)
+
+
+//Get new Xml with added Node value and assign to variable
+def newBLZService1XmlRequest = xmlBLZService1Request.getXml()
+
+//set request property value of BLZService1 test case with new xml variables
+testRunner.testCase.testSuite.testCases["TestCase"].testSteps["BLZService1"].setPropertyValue("Request", newBLZService1XmlRequest)
+
+//call the service BLZService1 after BLZService1 request with new XML variables.
+def BLZService1TestStep = testRunner.testCase.testSuite.testCases["TestCase"].testSteps["BLZService1"]
+//Assign to context
+def contextBLZService1 = new WsdlTestRunContext(BLZService1TestStep)
+
+//service.run(testRunner, context)
+BLZService1TestStep.run(testRunner, contextBLZService1)
+
+//Validate BLZService1
+def BLZService1Response= testRunner.testCase.testSuite.testCases["TestCase"].testSteps["BLZService1"].getPropertyValue("Response")
+def xmlBLZService1Response = new XmlHolder(BLZService1Response)
+def ResponseValue = xmlBLZService1Response.getNodeValue("//ns1:ort")
+log.info xmlBLZService1Response.getNodeValue("//ns1:ort")
+
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,318 @@
+{
+	"id": "c80275b0-ab93-412a-956e-453a96620bc2",
+	"name": "Reddit_6",
+	"timestamp": "2023-06-01T03:46:08.477Z",
+	"collection_id": "23437965-aafd5e33-c27b-4efa-9f5e-dbb03696b915",
+	"folder_id": 0,
+	"environment_id": "23437965-46d01016-13e7-45b8-8a3a-b656b821fd3c",
+	"totalPass": 25,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e21aeca7-6b8d-49b2-b022-6707fdc5f646",
+			"name": "Reddit Json",
+			"url": "https://www.reddit.com/r/javascript.json",
+			"time": 1979,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON Key value pair in listing data response": true,
+				"Validate Children data": true,
+				"Response time is above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON Key value pair in listing data response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Children data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1979
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON Key value pair in listing data response": true,
+					"Validate Children data": true,
+					"Response time is above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "bc8ea120-8b96-4c70-b719-c337047563f7",
+			"name": "Get response with invalid URL",
+			"url": "https://www.reddit.com/r/javascript/XML",
+			"time": 503,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Content-Type is present": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				503
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Content-Type is present": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "5452fe1d-bca6-4eaf-b647-35262a95ab20",
+			"name": "Get Response with Illegal characters in Parameters",
+			"url": "https://www.reddit.com/r/javascript?JSON=JSONVALUE&javascript.json&content=type",
+			"time": 1739,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Content-Type is present": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1739
+			],
+			"allTests": [
+				{
+					"Content-Type is present": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "f6cb3201-6ea1-4d4f-aa23-6b2173b26208",
+			"name": "Get Response by changing Request Method",
+			"url": "https://www.reddit.com/r/javascript.json",
+			"time": 469,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Check JSON key value pair in response": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				469
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Check JSON key value pair in response": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "941d64ab-a796-4545-b4af-72cbb7a02a1d",
+			"name": "Get Response with invalid UUID in Path",
+			"url": "https://www.reddit.com/r/javascript",
+			"time": 2048,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Content-Type is present": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2048
+			],
+			"allTests": [
+				{
+					"Content-Type is present": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "0131a997-6fd1-4c4d-b300-b3acbfcd5020",
+			"name": "Get Response with invalid HTTP Header value",
+			"url": "https://www.reddit.com/r/javascript.json",
+			"time": 134,
+			"responseCode": {
+				"code": 403,
+				"name": "Blocked"
+			},
+			"tests": {
+				"Status code is 403": true,
+				"Header Value": true,
+				"Response time is below 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				134
+			],
+			"allTests": [
+				{
+					"Status code is 403": true,
+					"Header Value": true,
+					"Response time is below 200ms": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6872,
+	"collection": {
+		"requests": [
+			{
+				"id": "e21aeca7-6b8d-49b2-b022-6707fdc5f646",
+				"method": "GET"
+			},
+			{
+				"id": "bc8ea120-8b96-4c70-b719-c337047563f7",
+				"method": "GET"
+			},
+			{
+				"id": "5452fe1d-bca6-4eaf-b647-35262a95ab20",
+				"method": "GET"
+			},
+			{
+				"id": "f6cb3201-6ea1-4d4f-aa23-6b2173b26208",
+				"method": "PUT"
+			},
+			{
+				"id": "941d64ab-a796-4545-b4af-72cbb7a02a1d",
+				"method": "GET"
+			},
+			{
+				"id": "0131a997-6fd1-4c4d-b300-b3acbfcd5020",
+				"method": "GET"
+			}
+		]
+	}
+}

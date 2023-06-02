@@ -1,0 +1,1257 @@
+{
+	"id": "f21da0b9-9a8f-4b04-964f-dea6d34de37f",
+	"name": "Reqres API_1",
+	"timestamp": "2023-06-01T03:48:42.803Z",
+	"collection_id": "23437965-638346e4-4743-477c-aaad-eb3fef8eb57d",
+	"folder_id": 0,
+	"environment_id": "23437965-34fc8cc3-23b5-425b-940e-7bb71453c392",
+	"totalPass": 119,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6f6c968d-600d-4260-b29c-0bb2bf72266e",
+			"name": "Successful User Login with valid credentials",
+			"url": "https://reqres.in/api/login",
+			"time": 3068,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Check Json Key Value pairs in Response": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Json Key Value pairs in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3068
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Check Json Key Value pairs in Response": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "cf6992a3-cb18-4610-9b62-cf2d90b32646",
+			"name": "Successful User Registration with valid credentials",
+			"url": "https://reqres.in/api/register",
+			"time": 860,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Check JSON key value pairs in response": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				860
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Check JSON key value pairs in response": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "97ca5784-b44a-4373-9ea5-bdb0cd5de00f",
+			"name": "Get Single User Detail",
+			"url": "https://reqres.in/api/users/4",
+			"time": 121,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches user's info": true,
+				"Header Value": true,
+				"Check JSON Key value pair in response": true,
+				"JSON schema validation": true,
+				"Response time is below 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches user's info": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON Key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				121
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches user's info": true,
+					"Header Value": true,
+					"Check JSON Key value pair in response": true,
+					"JSON schema validation": true,
+					"Response time is below 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "ba049c9a-a758-43e5-8dde-4775198981e5",
+			"name": "Get a list of users",
+			"url": "https://reqres.in/api/users",
+			"time": 98,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches user's info": true,
+				"Check JSON Key value pair in response": true,
+				"Header Value": true,
+				"Validate json schema format": true,
+				"Response time is below 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches user's info": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON Key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate json schema format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				98
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches user's info": true,
+					"Check JSON Key value pair in response": true,
+					"Header Value": true,
+					"Validate json schema format": true,
+					"Response time is below 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "d09bb1f1-19c5-4c1e-ba1d-f9157031644b",
+			"name": "Single user not found",
+			"url": "https://reqres.in/api/users/23",
+			"time": 122,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Header Value": true,
+				"Response time is below 200ms": true,
+				"Validate json schema format": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate json schema format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Header Value": true,
+					"Response time is below 200ms": true,
+					"Validate json schema format": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "0718b552-27e9-4231-8cd0-a0e311192dbb",
+			"name": "Get a list of resources",
+			"url": "https://reqres.in/api/unknown",
+			"time": 100,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pair in response": true,
+				"JSON schema validation": true,
+				"Response time is below 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				100
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pair in response": true,
+					"JSON schema validation": true,
+					"Response time is below 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "e2b79bea-d1d4-4173-b50e-59a127b4bdb6",
+			"name": "Get a single resource",
+			"url": "https://reqres.in/api/unknown/1",
+			"time": 89,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check JSON key value pairs in the response": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is below 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				89
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check JSON key value pairs in the response": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is below 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "d75c830b-e55b-4734-a6b1-bac5151fb7a3",
+			"name": "Single resource not found",
+			"url": "https://reqres.in/api/unknown/23",
+			"time": 93,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Header Value": true,
+				"Validate json schema format": true,
+				"Response time is below 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate json schema format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				93
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Header Value": true,
+					"Validate json schema format": true,
+					"Response time is below 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "61211224-84ac-4f20-aaf3-639caae42529",
+			"name": "Get a delayed response",
+			"url": "https://reqres.in/api/users?delay=1",
+			"time": 1951,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate delay response >3s": true,
+				"Header Value": true,
+				"Check JSON key value pair in Response": true,
+				"JSON schema validation": true,
+				"Response time is  above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate delay response >3s": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is  above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1951
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate delay response >3s": true,
+					"Header Value": true,
+					"Check JSON key value pair in Response": true,
+					"JSON schema validation": true,
+					"Response time is  above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "c2c5c5f9-f582-4a50-9d60-a113e8e52047",
+			"name": "Create New User",
+			"url": "https://reqres.in/api/users",
+			"time": 1077,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Body matches user's info": true,
+				"Header Value": true,
+				"Check JSON key value pair in response": true,
+				"Response time is above 200ms": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches user's info": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1077
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Body matches user's info": true,
+					"Header Value": true,
+					"Check JSON key value pair in response": true,
+					"Response time is above 200ms": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "753386a8-5d73-4068-bd3a-f831ba6d1632",
+			"name": "Update user",
+			"url": "https://reqres.in/api/users/709",
+			"time": 757,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check JSON key value pair in response": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful PUT Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful PUT Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				757
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check JSON key value pair in response": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful PUT Request": true
+				}
+			]
+		},
+		{
+			"id": "85d1fd72-7211-4f56-a5f4-a2bcf1b7337e",
+			"name": "Delete User",
+			"url": "https://reqres.in/api/users/709",
+			"time": 793,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Successful DELETE Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful DELETE Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				793
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Successful DELETE Request": true
+				}
+			]
+		},
+		{
+			"id": "2722b461-d816-414f-b7a0-cd0db00ec8f2",
+			"name": "Unsuccessful Registration with invalid credentials",
+			"url": "https://reqres.in/api/register/",
+			"time": 816,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Body matches string": true,
+				"Check Json key value pair in response": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Json key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				816
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body matches string": true,
+					"Check Json key value pair in response": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "290ba395-1ede-4fb4-a8d1-b1e1ad7db1d1",
+			"name": "Unsuccessful login with Invalid credentials",
+			"url": "https://reqres.in/api/login",
+			"time": 813,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"Response time is less than 200ms": true,
+				"Check JSON Key value pair in response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON Key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				813
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"Response time is less than 200ms": true,
+					"Check JSON Key value pair in response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "6a3ad4c7-d5cc-466f-b97b-1d5f59f74239",
+			"name": "Unsuccessful login with invalid email,wrong Http parameter value",
+			"url": "https://reqres.in/api/login/",
+			"time": 947,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Unsuccessful login with invalid email": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Unsuccessful login with invalid email": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				947
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Unsuccessful login with invalid email": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "a1cd24f2-1d8b-4cce-8b7b-c65c67c9187d",
+			"name": "Unsuccessful Registration without email",
+			"url": "https://reqres.in/api/register",
+			"time": 757,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Check JSON key value pair in response": true,
+				"Successful POST Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				757
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Check JSON key value pair in response": true,
+					"Successful POST Request": true
+				}
+			]
+		},
+		{
+			"id": "3d6aed78-faae-4b45-b03e-0b5967c95bb1",
+			"name": "Update the existing user with change method",
+			"url": "https://reqres.in/api/users/",
+			"time": 880,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				880
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "b74d4c44-a7e8-44cc-8a33-ce9251459053",
+			"name": "Get a single resource with invalid Header Value",
+			"url": "https://reqres.in/api/unknown/1",
+			"time": 78,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is below 200ms": true,
+				"Status code name has string": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response time is below 200ms": true,
+					"Status code name has string": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "d4cd0f27-9b7a-45d7-99b8-11013f9a5185",
+			"name": "Delete an employee record with invalid employee ID",
+			"url": "https://reqres.in/api",
+			"time": 1059,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1059
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "d2a4ae7c-ad33-4198-bcbe-6408e7dd7fd2",
+			"name": "Create User with wrong Payload structure",
+			"url": "https://reqres.in/api/users",
+			"time": 831,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Body matches string": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				831
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body matches string": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "0f625f8f-e662-422a-97c8-2e0e26036f4e",
+			"name": "Create New user with invalid UUID in Path",
+			"url": "https://reqres.in/api:users",
+			"time": 752,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				752
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 16062,
+	"collection": {
+		"requests": [
+			{
+				"id": "6f6c968d-600d-4260-b29c-0bb2bf72266e",
+				"method": "POST"
+			},
+			{
+				"id": "cf6992a3-cb18-4610-9b62-cf2d90b32646",
+				"method": "POST"
+			},
+			{
+				"id": "97ca5784-b44a-4373-9ea5-bdb0cd5de00f",
+				"method": "GET"
+			},
+			{
+				"id": "ba049c9a-a758-43e5-8dde-4775198981e5",
+				"method": "GET"
+			},
+			{
+				"id": "d09bb1f1-19c5-4c1e-ba1d-f9157031644b",
+				"method": "GET"
+			},
+			{
+				"id": "0718b552-27e9-4231-8cd0-a0e311192dbb",
+				"method": "GET"
+			},
+			{
+				"id": "e2b79bea-d1d4-4173-b50e-59a127b4bdb6",
+				"method": "GET"
+			},
+			{
+				"id": "d75c830b-e55b-4734-a6b1-bac5151fb7a3",
+				"method": "GET"
+			},
+			{
+				"id": "61211224-84ac-4f20-aaf3-639caae42529",
+				"method": "GET"
+			},
+			{
+				"id": "c2c5c5f9-f582-4a50-9d60-a113e8e52047",
+				"method": "POST"
+			},
+			{
+				"id": "753386a8-5d73-4068-bd3a-f831ba6d1632",
+				"method": "PUT"
+			},
+			{
+				"id": "85d1fd72-7211-4f56-a5f4-a2bcf1b7337e",
+				"method": "DELETE"
+			},
+			{
+				"id": "2722b461-d816-414f-b7a0-cd0db00ec8f2",
+				"method": "POST"
+			},
+			{
+				"id": "290ba395-1ede-4fb4-a8d1-b1e1ad7db1d1",
+				"method": "POST"
+			},
+			{
+				"id": "6a3ad4c7-d5cc-466f-b97b-1d5f59f74239",
+				"method": "POST"
+			},
+			{
+				"id": "a1cd24f2-1d8b-4cce-8b7b-c65c67c9187d",
+				"method": "POST"
+			},
+			{
+				"id": "3d6aed78-faae-4b45-b03e-0b5967c95bb1",
+				"method": "COPY"
+			},
+			{
+				"id": "b74d4c44-a7e8-44cc-8a33-ce9251459053",
+				"method": "GET"
+			},
+			{
+				"id": "d4cd0f27-9b7a-45d7-99b8-11013f9a5185",
+				"method": "DELETE"
+			},
+			{
+				"id": "d2a4ae7c-ad33-4198-bcbe-6408e7dd7fd2",
+				"method": "POST"
+			},
+			{
+				"id": "0f625f8f-e662-422a-97c8-2e0e26036f4e",
+				"method": "POST"
+			}
+		]
+	}
+}

@@ -1,0 +1,3 @@
+title,description,categoryId,subcategoryId,tags,serviceType,locationType,startDate,endDate,startTimeMon,endTimeMon,availableMon,skillTrade
+Web element,I would like to html and CSS,6,2,SQL,0,1,25/10/2023,30/10/2023,13:17,15:17,TRUE,QA
+hi,hi,5,2,vg,0,1,26/10/2023,30/10/2023,14:15,16:15,TRUE,SQ
