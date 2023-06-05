@@ -1,0 +1,275 @@
+{
+	"id": "fec37d41-4f6e-492c-8583-729243bbdfa7",
+	"name": "IP JsonTest_5",
+	"timestamp": "2023-06-01T04:10:24.851Z",
+	"collection_id": "23437965-26157ac8-991e-4bf4-992d-8c148b4d2dda",
+	"folder_id": 0,
+	"environment_id": "23437965-464cbb64-c500-4f6a-afaf-e37f3dbf4efa",
+	"totalPass": 22,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2c0d645e-82f7-43b0-804a-dae7278e3dfc",
+			"name": "IP Request",
+			"url": "http://ip.jsontest.com/",
+			"time": 1494,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response value matches string": true,
+				"Header Value": true,
+				"Check JSON key value pair in response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response value matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1494
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response value matches string": true,
+					"Header Value": true,
+					"Check JSON key value pair in response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "d6c51d70-6328-4a08-9d70-01dddf61c2d1",
+			"name": "Get Response with providing invalid Payload structure",
+			"url": "http://ip.jsontest.com/",
+			"time": 502,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is above 200ms": true,
+				"Body matches string": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				502
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response time is above 200ms": true,
+					"Body matches string": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "fcfda0da-64ed-4e57-9bc0-beafb26ebca6",
+			"name": "Get Response with invalid HTTP Header value",
+			"url": "http://ip.jsontest.com/",
+			"time": 857,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				857
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "0e19d970-5114-4b7a-b37a-61364cda9b3b",
+			"name": "Get Response with changing the Request  Method",
+			"url": "http://ip.jsontest.com/",
+			"time": 631,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 405": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 405": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				631
+			],
+			"allTests": [
+				{
+					"Status code is 405": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "bf5d22b0-fa16-4edf-b59e-0cc94cd1c146",
+			"name": "Get Response with overload JSON Payload",
+			"url": "http://ip.jsontest.com/",
+			"time": 235,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				235
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3719,
+	"collection": {
+		"requests": [
+			{
+				"id": "2c0d645e-82f7-43b0-804a-dae7278e3dfc",
+				"method": "GET"
+			},
+			{
+				"id": "d6c51d70-6328-4a08-9d70-01dddf61c2d1",
+				"method": "GET"
+			},
+			{
+				"id": "fcfda0da-64ed-4e57-9bc0-beafb26ebca6",
+				"method": "GET"
+			},
+			{
+				"id": "0e19d970-5114-4b7a-b37a-61364cda9b3b",
+				"method": "PUT"
+			},
+			{
+				"id": "bf5d22b0-fa16-4edf-b59e-0cc94cd1c146",
+				"method": "GET"
+			}
+		]
+	}
+}

@@ -1,0 +1,830 @@
+{
+	"id": "e91a5926-5836-4f75-bbcc-d783f6581d1a",
+	"name": "Petstore Swagger_3",
+	"timestamp": "2023-06-01T04:12:30.207Z",
+	"collection_id": "23437965-e2228020-ed60-48be-93c5-ce34289c2752",
+	"folder_id": 0,
+	"environment_id": "23437965-19171605-d683-4bb3-9432-f7e7fe9d0d68",
+	"totalPass": 78,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "675f0663-628a-4730-8621-22fecff4b496",
+			"name": "Finds Pets by status available",
+			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
+			"time": 292,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Successful GET Request": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				292
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Successful GET Request": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "d0145859-cf4d-4eba-b7dc-261458398f8c",
+			"name": "Finds Pets by tags",
+			"url": "https://petstore.swagger.io/v2/pet/findByTags?tags=%3Cstring%3E,%3Cstring%3E",
+			"time": 268,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Header Value": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				268
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Header Value": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "6da5d1dc-5a8e-4328-bd43-721c0ef50f6c",
+			"name": "Find Pets by Status Sold",
+			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=sold",
+			"time": 312,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Successful GET Request": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				312
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Successful GET Request": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "1eedf1a3-17d4-489a-90db-0fca4b78352f",
+			"name": "Find Pets by Status Pending",
+			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=pending",
+			"time": 238,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Successful GET Request": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				238
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Successful GET Request": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "28467a7b-f90f-4430-a5d2-87c86d14fd1b",
+			"name": "Find purchase order by ID",
+			"url": "https://petstore.swagger.io/v2/store/order/5",
+			"time": 295,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check Json key pair value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Json key pair value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				295
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check Json key pair value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "b363d159-34ab-4438-979a-b8952776365b",
+			"name": "Delete purchase order by ID",
+			"url": "https://petstore.swagger.io/v2/store/order/5",
+			"time": 336,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check Json key value pair in response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful DELETE request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Json key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful DELETE request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				336
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check Json key value pair in response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful DELETE request": true
+				}
+			]
+		},
+		{
+			"id": "d6b22c77-6fd3-4433-84f1-40e75def9b7c",
+			"name": "Place an order for a pet",
+			"url": "https://petstore.swagger.io/v2/store/order",
+			"time": 317,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check Json key pair value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Json key pair value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				317
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check Json key pair value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "d7046a30-7484-4915-ae84-90097f1065e1",
+			"name": "Returns pet inventories by status",
+			"url": "https://petstore.swagger.io/v2/store/inventory",
+			"time": 308,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				308
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "ab2f95cd-a904-4890-a2f0-2b3a253ef269",
+			"name": "Create user",
+			"url": "https://petstore.swagger.io/v2/user",
+			"time": 337,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				337
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "4b31cbd7-5266-4fae-8197-f6175266daef",
+			"name": "Updated user",
+			"url": "https://petstore.swagger.io/v2/user/spritithakur",
+			"time": 323,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful PUT request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful PUT request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				323
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful PUT request": true
+				}
+			]
+		},
+		{
+			"id": "2dc29a9e-03ce-488b-97f5-5045438b4f45",
+			"name": "Logs user into the system",
+			"url": "https://petstore.swagger.io/v2/user/login?username=spritithakur&password=745",
+			"time": 293,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GETrequest": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GETrequest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				293
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GETrequest": true
+				}
+			]
+		},
+		{
+			"id": "313a63c5-2aab-46e5-bc78-0697240fd066",
+			"name": "Logs out current logged in user session",
+			"url": "https://petstore.swagger.io/v2/user/logout",
+			"time": 351,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				351
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "8cbcf34b-5daf-43c9-83f4-52a878430200",
+			"name": "Creates list of users with given input array",
+			"url": "https://petstore.swagger.io/v2/user/createWithArray",
+			"time": 302,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				302
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "1e75461a-b7ef-4775-a639-a9b29d0e5713",
+			"name": "Creates list of users with given input array (list)",
+			"url": "https://petstore.swagger.io/v2/user/createWithList",
+			"time": 618,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Header Value": true,
+				"Check JSON key value pairs in the response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				618
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Header Value": true,
+					"Check JSON key value pairs in the response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful POST request": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4590,
+	"collection": {
+		"requests": [
+			{
+				"id": "675f0663-628a-4730-8621-22fecff4b496",
+				"method": "GET"
+			},
+			{
+				"id": "d0145859-cf4d-4eba-b7dc-261458398f8c",
+				"method": "GET"
+			},
+			{
+				"id": "6da5d1dc-5a8e-4328-bd43-721c0ef50f6c",
+				"method": "GET"
+			},
+			{
+				"id": "1eedf1a3-17d4-489a-90db-0fca4b78352f",
+				"method": "GET"
+			},
+			{
+				"id": "28467a7b-f90f-4430-a5d2-87c86d14fd1b",
+				"method": "GET"
+			},
+			{
+				"id": "b363d159-34ab-4438-979a-b8952776365b",
+				"method": "DELETE"
+			},
+			{
+				"id": "d6b22c77-6fd3-4433-84f1-40e75def9b7c",
+				"method": "POST"
+			},
+			{
+				"id": "d7046a30-7484-4915-ae84-90097f1065e1",
+				"method": "GET"
+			},
+			{
+				"id": "ab2f95cd-a904-4890-a2f0-2b3a253ef269",
+				"method": "POST"
+			},
+			{
+				"id": "4b31cbd7-5266-4fae-8197-f6175266daef",
+				"method": "PUT"
+			},
+			{
+				"id": "2dc29a9e-03ce-488b-97f5-5045438b4f45",
+				"method": "GET"
+			},
+			{
+				"id": "313a63c5-2aab-46e5-bc78-0697240fd066",
+				"method": "GET"
+			},
+			{
+				"id": "8cbcf34b-5daf-43c9-83f4-52a878430200",
+				"method": "POST"
+			},
+			{
+				"id": "1e75461a-b7ef-4775-a639-a9b29d0e5713",
+				"method": "POST"
+			}
+		]
+	}
+}

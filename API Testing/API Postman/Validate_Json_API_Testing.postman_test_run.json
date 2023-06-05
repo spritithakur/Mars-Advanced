@@ -1,0 +1,415 @@
+{
+	"id": "5392b668-fec8-434c-9be2-a31f8d27eed3",
+	"name": "Validate_Json_API_Testing",
+	"timestamp": "2023-06-01T03:36:35.203Z",
+	"collection_id": "23437965-7a5a9e25-652d-4d81-9d34-66320d7b5f38",
+	"folder_id": 0,
+	"environment_id": "23437965-df3f73a4-f583-44dc-9b64-297b92fadd7f",
+	"totalPass": 37,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d6589ae3-576a-4927-97f2-4973755d839e",
+			"name": "Get Response with providing invalid Payload structure",
+			"url": "http://validate.jsontest.com/?json=%5BJSON-code-to-validate%5D",
+			"time": 238,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is above 200ms": true,
+				"Body matches string": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				238
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response time is above 200ms": true,
+					"Body matches string": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "725d58e3-2691-413b-b6c7-139616174b13",
+			"name": "Get response with invalid URL",
+			"url": "http://validate.jsontest.com/?json=%5BJSON",
+			"time": 772,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check JSON key value pairs in the response": true,
+				"Content-Type is present": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				772
+			],
+			"allTests": [
+				{
+					"Check JSON key value pairs in the response": true,
+					"Content-Type is present": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "867538b3-b40d-4292-a145-da147d432969",
+			"name": "Get Response with invalid HTTP Header value",
+			"url": "http://validate.jsontest.com/?json=%5BJSON-code-to-validate%5D",
+			"time": 179,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Header Value": true,
+				"Response time is below 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				179
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Header Value": true,
+					"Response time is below 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "872dc035-2191-49fe-98f4-e4da4e91ded7",
+			"name": "Get Response with Illegal characters in Parameters",
+			"url": "http://validate.jsontest.com/?json=%5B&XML=bsdjhdbvsdj&text=validate&Javascript=%3C?XML=1231546%3E&name=*********&JSON=JSON-code-to-validate%5D",
+			"time": 778,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check JSON key value pairs in the response": true,
+				"Content-Type is present": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				778
+			],
+			"allTests": [
+				{
+					"Check JSON key value pairs in the response": true,
+					"Content-Type is present": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "09cdc2e2-d291-4d67-927d-22bcb858077e",
+			"name": "Get Response with changing the Request  Method",
+			"url": "http://validate.jsontest.com/?json=%5BJSON-code-to-validate%5D",
+			"time": 501,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 405": true,
+				"Header Value": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 405": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				501
+			],
+			"allTests": [
+				{
+					"Status code is 405": true,
+					"Header Value": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "0b950bbb-bc4d-4f0c-9658-560aa43a1508",
+			"name": "Get the Validate Json request with invalid UUID in Path",
+			"url": "http://validate.jsontest.com//?json=%5BJSON-code-to-validate%6D",
+			"time": 530,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check JSON key value pairs in the response": true,
+				"Content-Type is present": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				530
+			],
+			"allTests": [
+				{
+					"Check JSON key value pairs in the response": true,
+					"Content-Type is present": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		},
+		{
+			"id": "3ed939ed-d275-490f-93de-ba6df1131f49",
+			"name": "Validate Json request",
+			"url": "http://validate.jsontest.com/?json=%5BJSON-code-to-validate%5D",
+			"time": 529,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check JSON key value pairs in the response": true,
+				"Content-Type is present": true,
+				"Verify value in response body": true,
+				"Header Value": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET Request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pairs in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify value in response body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET Request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				529
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check JSON key value pairs in the response": true,
+					"Content-Type is present": true,
+					"Verify value in response body": true,
+					"Header Value": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET Request": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3527,
+	"collection": {
+		"requests": [
+			{
+				"id": "d6589ae3-576a-4927-97f2-4973755d839e",
+				"method": "GET"
+			},
+			{
+				"id": "725d58e3-2691-413b-b6c7-139616174b13",
+				"method": "GET"
+			},
+			{
+				"id": "867538b3-b40d-4292-a145-da147d432969",
+				"method": "GET"
+			},
+			{
+				"id": "872dc035-2191-49fe-98f4-e4da4e91ded7",
+				"method": "GET"
+			},
+			{
+				"id": "09cdc2e2-d291-4d67-927d-22bcb858077e",
+				"method": "PUT"
+			},
+			{
+				"id": "0b950bbb-bc4d-4f0c-9658-560aa43a1508",
+				"method": "GET"
+			},
+			{
+				"id": "3ed939ed-d275-490f-93de-ba6df1131f49",
+				"method": "GET"
+			}
+		]
+	}
+}

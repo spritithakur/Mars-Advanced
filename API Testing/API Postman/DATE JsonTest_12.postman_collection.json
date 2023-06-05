@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "80f9dee2-62e4-4233-ab0f-e20051fea4a2",
+		"name": "DATE JsonTest_12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23437965"
+	},
+	"item": [
+		{
+			"name": "Positive Scenarios",
+			"item": [
+				{
+					"name": "Date&Time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"$isoDatestamp\", jsonData.date);\r",
+									"postman.setEnvironmentVariable(\"$isoTimestamp\", jsonData.time);\r",
+									"postman.setEnvironmentVariable(\"milliseconds_since_epoch\", jsonData.milliseconds_since_epoch);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.date).to.eql(pm.variables.replaceIn('{{$isoDatestamp}}'));\r",
+									"    pm.expect(jsonData.time).to.eql(pm.variables.replaceIn('{{$isoTimestamp}}'));\r",
+									"    pm.expect(jsonData.milliseconds_since_epoch).to.eql(parseInt(pm.environment.get(\"milliseconds_since_epoch\")));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify value in response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"date\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"milliseconds_since_epoch\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"time\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"    \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"date\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"milliseconds_since_epoch\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"time\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"date\",\r",
+									"    \"milliseconds_since_epoch\",\r",
+									"    \"time\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DateURL}}",
+							"host": [
+								"{{DateURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative Scenarios",
+			"item": [
+				{
+					"name": "Get Response with providing invalid Payload structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Error: Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Date&Time JSON\" : [\r\n\r\n{\r\n    \"date\": \"05-30-2023\"\r\n    \r\n},\r\n\r\n{\r\n\r\n \"milliseconds_since_epoch\": \"1685433247811\"\r\n    \r\n},\r\n\r\n{\r\n\r\n \"time\": \"07:54:07 AM\"\r\n\r\n}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DateURL}}",
+							"host": [
+								"{{DateURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with invalid HTTP Header value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The requested URL\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DateURL}}",
+							"host": [
+								"{{DateURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with changing the Request  Method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{DateURL}}",
+							"host": [
+								"{{DateURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with overload JSON Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 100ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(100);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"400 Bad Request\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "I’m using postman to make REST API calls, but on the very first POST call, I’m getting an error. The same when run from cURL command line, it works fine.\r\n\r\nThe error say: Could not get response “Parse Error: There seems to be invalid character in response header key or value” …When I look in console, it says: Error: Parse Error: Invalid header token.\r\n\r\nReally appreciate if someone can assist with getting resolved this. BTW, I’m running postman version v9.15.2",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DateURL}}",
+							"host": [
+								"{{DateURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

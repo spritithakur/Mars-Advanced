@@ -1,0 +1,1418 @@
+{
+	"id": "e631add2-286c-4087-9748-f9417eb4186d",
+	"name": "Dog API_4",
+	"timestamp": "2023-06-01T04:20:17.565Z",
+	"collection_id": "23437965-83ef6fc4-1cf0-4fe1-b9cd-b7f6a6470066",
+	"folder_id": 0,
+	"environment_id": "23437965-8abcd573-04f4-4869-8797-55d3a81141e8",
+	"totalPass": 150,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1c9d4db9-bea6-4938-ab91-5e8a61f65b29",
+			"name": "Dog  API",
+			"url": "https://dog.ceo//dog-api/",
+			"time": 446,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Dog.Ceo will respond 200": true,
+				"Validate the body matches string": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Dog.Ceo will respond 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				446
+			],
+			"allTests": [
+				{
+					"Dog.Ceo will respond 200": true,
+					"Validate the body matches string": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "454b6c62-d16b-445a-ba7f-0343ae010a62",
+			"name": "EndPoints Documentation",
+			"url": "https://dog.ceo/dog-api/documentation/",
+			"time": 484,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate the key value pairs with ENDPOINTS": true,
+				"Endpoints must have List all breeds option": true,
+				"Endpoints must have Random Image option": true,
+				"Endpoints must have By breed option ": true,
+				"Endpoints must have By sub-breed option": true,
+				"Endpoints must have By Browse breed list option": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the key value pairs with ENDPOINTS": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Endpoints must have List all breeds option": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Endpoints must have Random Image option": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Endpoints must have By breed option ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Endpoints must have By sub-breed option": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Endpoints must have By Browse breed list option": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				484
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate the key value pairs with ENDPOINTS": true,
+					"Endpoints must have List all breeds option": true,
+					"Endpoints must have Random Image option": true,
+					"Endpoints must have By breed option ": true,
+					"Endpoints must have By sub-breed option": true,
+					"Endpoints must have By Browse breed list option": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "76000629-dde9-46a9-a8e6-6c0c02f7b3dd",
+			"name": "List All Breeds",
+			"url": "https://dog.ceo/api/breeds/list/all",
+			"time": 491,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate listing data": true,
+				"Check JSON key value pair for Shepherd in response": true,
+				"Check JSON key value pair for norwegian in response": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair for Shepherd in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair for norwegian in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				491
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate listing data": true,
+					"Check JSON key value pair for Shepherd in response": true,
+					"Check JSON key value pair for norwegian in response": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "c09c0bcf-efea-4056-910c-3afb9a173fbc",
+			"name": "Single random image",
+			"url": "https://dog.ceo/api/breeds/image/random",
+			"time": 670,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GETrequest": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GETrequest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				670
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GETrequest": true
+				}
+			]
+		},
+		{
+			"id": "fb4ac74c-0652-440e-8bc6-3e7c3deb0eca",
+			"name": "Multiple random images ",
+			"url": "https://dog.ceo/api/breeds/image/random/3",
+			"time": 485,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				485
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "c81374b7-332d-4e00-a39b-91eae4259118",
+			"name": "List all images from a  breed",
+			"url": "https://dog.ceo/api/breed/hound/images",
+			"time": 557,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				557
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "29a6cb43-633c-48a5-81ff-bd7f559053f1",
+			"name": "Random Image From A BREED",
+			"url": "https://dog.ceo/api/breed/hound/images/random",
+			"time": 693,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in response listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in response listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				693
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in response listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "79c0e228-cc27-476e-a9e7-7a14fdd5bd20",
+			"name": "Multiple images from a breed collection",
+			"url": "https://dog.ceo/api/breed/hound/images/random/3",
+			"time": 537,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				537
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "53a55f7c-037d-426d-8354-ac540d2dd1ab",
+			"name": "List all sub-breed",
+			"url": "https://dog.ceo/api/breed/hound/list",
+			"time": 485,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in response listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in response listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				485
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in response listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "aaeef450-6250-4b0e-9a99-1fcfe051ba05",
+			"name": "List all sub-breed images",
+			"url": "https://dog.ceo/api/breed/hound/afghan/images",
+			"time": 515,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair response in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair response in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				515
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair response in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "3e0f6aff-ce7a-4e5e-8903-28ac408aab3b",
+			"name": "Single random image from sub-breed collection",
+			"url": "https://dog.ceo/api/breed/hound/afghan/images/random",
+			"time": 584,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Successful GET request": true,
+				"Validate JSON key value pair in response listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in response listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				584
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Successful GET request": true,
+					"Validate JSON key value pair in response listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true
+				}
+			]
+		},
+		{
+			"id": "2e0a8522-a552-488e-8e26-1aec3c549717",
+			"name": "Multiple images from sub-breed collection",
+			"url": "https://dog.ceo/api/breed/hound/afghan/images/random/3",
+			"time": 493,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				493
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "24aba91a-d197-41c8-a9b5-7fa01ca0588e",
+			"name": "Browse Breeds List",
+			"url": "https://dog.ceo/api/breeds/image/random",
+			"time": 374,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check status code 200": true,
+				"Response status has to be success ": true,
+				"Status code is 200": true,
+				"Header Value": true,
+				"Body matches string": true,
+				"Validate JSON key value pair in response listing data": true,
+				"JSON schema validation": true,
+				"Response time is above 200ms": true,
+				"Successful GET request": true
+			},
+			"testPassFailCounts": {
+				"Check status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status has to be success ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate JSON key value pair in response listing data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful GET request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				374
+			],
+			"allTests": [
+				{
+					"Check status code 200": true,
+					"Response status has to be success ": true,
+					"Status code is 200": true,
+					"Header Value": true,
+					"Body matches string": true,
+					"Validate JSON key value pair in response listing data": true,
+					"JSON schema validation": true,
+					"Response time is above 200ms": true,
+					"Successful GET request": true
+				}
+			]
+		},
+		{
+			"id": "2fa0b134-2a48-4d23-8149-18ad3ae309f3",
+			"name": "Get End Point Documentation with invalid URL",
+			"url": "https://dog.ceo/dog-api/documentation/123",
+			"time": 743,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Body matches string": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				743
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Body matches string": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "b2140700-66d3-4943-953e-40d4f735677c",
+			"name": "Get End Point Documentation with invalid HTTP Header",
+			"url": "https://dog.ceo/dog-api/documentation/",
+			"time": 99,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Body matches string": true,
+				"Response time is below 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				99
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body matches string": true,
+					"Response time is below 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "9e58864a-b98d-4820-bbae-ebba5bfd71d5",
+			"name": "Get All Breeds List with changing request method",
+			"url": "https://dog.ceo/api/breeds/list/all",
+			"time": 886,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"JSON schema validation": true,
+				"Status code is 405": true,
+				"Body matches string": true,
+				"Check JSON key value pair in response": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 405": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				886
+			],
+			"allTests": [
+				{
+					"JSON schema validation": true,
+					"Status code is 405": true,
+					"Body matches string": true,
+					"Check JSON key value pair in response": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "59c79928-fcf0-4a31-87b1-085c990ee473",
+			"name": "Get Single random image with invalid HTTP Headers",
+			"url": "https://dog.ceo/api/breeds/image/random",
+			"time": 65,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Header Value": true,
+				"Response time is below 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				65
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Header Value": true,
+					"Response time is below 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "92c3e238-7906-4e33-9daa-f953dd772dc2",
+			"name": "GET List of all sub-breed images with invalid value for endpoint",
+			"url": "https://dog.ceo/api/breed/images",
+			"time": 874,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"JSON schema validation": true,
+				"Status code is 404": true,
+				"Body matches string": true,
+				"Check JSON key value pair in response": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				874
+			],
+			"allTests": [
+				{
+					"JSON schema validation": true,
+					"Status code is 404": true,
+					"Body matches string": true,
+					"Check JSON key value pair in response": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "ac523713-f019-4a7c-9e72-b56b229a8f6b",
+			"name": "Get Multiple images from sub-breed collection with invalid UUID in Path",
+			"url": "https://dog.ceo/api/breeds/image/ram",
+			"time": 616,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"JSON schema validation": true,
+				"Status code is 404": true,
+				"Body matches string": true,
+				"Check JSON key value pair in response": true,
+				"Response time is above 200ms": true,
+				"Header Value": true
+			},
+			"testPassFailCounts": {
+				"JSON schema validation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check JSON key value pair in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				616
+			],
+			"allTests": [
+				{
+					"JSON schema validation": true,
+					"Status code is 404": true,
+					"Body matches string": true,
+					"Check JSON key value pair in response": true,
+					"Response time is above 200ms": true,
+					"Header Value": true
+				}
+			]
+		},
+		{
+			"id": "3ee5e7ad-8b63-471e-a00b-553fe16970e2",
+			"name": "Get Dog  API with invalid UUID in Path",
+			"url": "https://dog.ceo//dog-API/",
+			"time": 411,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Header Value": true,
+				"Response time is above 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Header Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is above 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				411
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Header Value": true,
+					"Response time is above 200ms": true,
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 10508,
+	"collection": {
+		"requests": [
+			{
+				"id": "1c9d4db9-bea6-4938-ab91-5e8a61f65b29",
+				"method": "GET"
+			},
+			{
+				"id": "454b6c62-d16b-445a-ba7f-0343ae010a62",
+				"method": "GET"
+			},
+			{
+				"id": "76000629-dde9-46a9-a8e6-6c0c02f7b3dd",
+				"method": "GET"
+			},
+			{
+				"id": "c09c0bcf-efea-4056-910c-3afb9a173fbc",
+				"method": "GET"
+			},
+			{
+				"id": "fb4ac74c-0652-440e-8bc6-3e7c3deb0eca",
+				"method": "GET"
+			},
+			{
+				"id": "c81374b7-332d-4e00-a39b-91eae4259118",
+				"method": "GET"
+			},
+			{
+				"id": "29a6cb43-633c-48a5-81ff-bd7f559053f1",
+				"method": "GET"
+			},
+			{
+				"id": "79c0e228-cc27-476e-a9e7-7a14fdd5bd20",
+				"method": "GET"
+			},
+			{
+				"id": "53a55f7c-037d-426d-8354-ac540d2dd1ab",
+				"method": "GET"
+			},
+			{
+				"id": "aaeef450-6250-4b0e-9a99-1fcfe051ba05",
+				"method": "GET"
+			},
+			{
+				"id": "3e0f6aff-ce7a-4e5e-8903-28ac408aab3b",
+				"method": "GET"
+			},
+			{
+				"id": "2e0a8522-a552-488e-8e26-1aec3c549717",
+				"method": "GET"
+			},
+			{
+				"id": "24aba91a-d197-41c8-a9b5-7fa01ca0588e",
+				"method": "GET"
+			},
+			{
+				"id": "2fa0b134-2a48-4d23-8149-18ad3ae309f3",
+				"method": "GET"
+			},
+			{
+				"id": "b2140700-66d3-4943-953e-40d4f735677c",
+				"method": "GET"
+			},
+			{
+				"id": "9e58864a-b98d-4820-bbae-ebba5bfd71d5",
+				"method": "PUT"
+			},
+			{
+				"id": "59c79928-fcf0-4a31-87b1-085c990ee473",
+				"method": "GET"
+			},
+			{
+				"id": "92c3e238-7906-4e33-9daa-f953dd772dc2",
+				"method": "GET"
+			},
+			{
+				"id": "ac523713-f019-4a7c-9e72-b56b229a8f6b",
+				"method": "GET"
+			},
+			{
+				"id": "3ee5e7ad-8b63-471e-a00b-553fe16970e2",
+				"method": "GET"
+			}
+		]
+	}
+}

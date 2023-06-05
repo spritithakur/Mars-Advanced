@@ -1,0 +1,683 @@
+{
+	"info": {
+		"_postman_id": "7a5a9e25-652d-4d81-9d34-66320d7b5f38",
+		"name": "Validate_Json_API_Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23437965"
+	},
+	"item": [
+		{
+			"name": "Negative Scenario",
+			"item": [
+				{
+					"name": "Get Response with providing invalid Payload structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Error: Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Validate JSON\" : [\r\n\r\n{\r\n    \"size\": \"1\"\r\n\r\n},\r\n{\r\n    \"parse_time_nanoseconds\":\"557492\"\r\n},\r\n\r\n{\r\n    \r\n\"object_or_array\": \"array\"\r\n\r\n},\r\n    \r\n{\r\n \"validate\": true\r\n },\r\n\r\n    \r\n{\r\n\"empty\": false\r\n},\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5BJSON-code-to-validate%5D",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5BJSON-code-to-validate%5D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get response with invalid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"parse_time_nanoseconds\", jsonData.parse_time_nanoseconds);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error_info).to.eql(\"This error came from the org.json reference parser.\");\r",
+									"    pm.expect(jsonData.error).to.eql(\"Expected a ',' or ']' at 6 [character 7 line 1]\");\r",
+									"    pm.expect(jsonData.object_or_array).to.eql(\"array\");\r",
+									"    pm.expect(jsonData.validate).to.eql(false);\r",
+									"   \r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error_info\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"object_or_array\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"validate\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error_info\",\r",
+									"    \"error\",\r",
+									"    \"object_or_array\",\r",
+									"    \"validate\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5BJSON",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5BJSON"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with invalid HTTP Header value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=UTF-8\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The requested URL\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true,
+							"accept": true,
+							"host": true,
+							"connection": true,
+							"accept-encoding": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5BJSON-code-to-validate%5D",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5BJSON-code-to-validate%5D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with Illegal characters in Parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"parse_time_nanoseconds\", jsonData.parse_time_nanoseconds);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error_info).to.eql(\"This error came from the org.json reference parser.\");\r",
+									"    pm.expect(jsonData.error).to.eql(\"Missing value at 1 [character 2 line 1]\");\r",
+									"    pm.expect(jsonData.object_or_array).to.eql(\"array\");\r",
+									"    pm.expect(jsonData.validate).to.eql(false);\r",
+									"   \r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error_info\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"object_or_array\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"validate\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error_info\",\r",
+									"    \"error\",\r",
+									"    \"object_or_array\",\r",
+									"    \"validate\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5B&XML=bsdjhdbvsdj&text=validate&Javascript=<?XML=1231546>&name=*********&JSON=JSON-code-to-validate%5D",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5B"
+								},
+								{
+									"key": "XML",
+									"value": "bsdjhdbvsdj"
+								},
+								{
+									"key": "text",
+									"value": "validate"
+								},
+								{
+									"key": "Javascript",
+									"value": "<?XML=1231546>"
+								},
+								{
+									"key": "name",
+									"value": "*********"
+								},
+								{
+									"key": "JSON",
+									"value": "JSON-code-to-validate%5D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Response with changing the Request  Method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5BJSON-code-to-validate%5D",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5BJSON-code-to-validate%5D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Validate Json request with invalid UUID in Path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"parse_time_nanoseconds\", jsonData.parse_time_nanoseconds);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error_info).to.eql(\"This error came from the org.json reference parser.\");\r",
+									"    pm.expect(jsonData.error).to.eql(\"Expected a ',' or ']' at 24 [character 25 line 1]\");\r",
+									"    pm.expect(jsonData.object_or_array).to.eql(\"array\");\r",
+									"    pm.expect(jsonData.validate).to.eql(false);\r",
+									"   \r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error_info\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"object_or_array\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"validate\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error_info\",\r",
+									"    \"error\",\r",
+									"    \"object_or_array\",\r",
+									"    \"validate\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ValidateURL}}/:JSON",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								":JSON"
+							],
+							"variable": [
+								{
+									"key": "JSON",
+									"value": "/?json=%5BJSON-code-to-validate%6D"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Positive Scenario",
+			"item": [
+				{
+					"name": "Validate Json request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"parse_time_nanoseconds\", jsonData.parse_time_nanoseconds);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check JSON key value pairs in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.size).to.eql(1);\r",
+									"    pm.expect(jsonData.object_or_array).to.eql(\"array\");\r",
+									"    pm.expect(jsonData.validate).to.eql(true);\r",
+									"    pm.expect(jsonData.empty).to.eql(false);\r",
+									"    pm.expect(jsonData.parse_time_nanoseconds).to.eql(parseInt(pm.environment.get(\"parse_time_nanoseconds\")));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify value in response body\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"parse_time_nanoseconds\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Header Value\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"//Json Schema Validation\r",
+									"\r",
+									"var schema = \r",
+									"{\r",
+									"  \r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"size\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"parse_time_nanoseconds\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"object_or_array\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"validate\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    },\r",
+									"    \"empty\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"size\",\r",
+									"    \"parse_time_nanoseconds\",\r",
+									"    \"object_or_array\",\r",
+									"    \"validate\",\r",
+									"    \"empty\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"JSON schema validation\", function() {\r",
+									" var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									" if(result.valid){\r",
+									"     console.log(result);\r",
+									"\r",
+									" }\r",
+									" pm.expect(result.valid).to.be.true;\r",
+									"})\r",
+									"\r",
+									"//Check the response time\r",
+									"pm.test(\"Response time is above 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful GET Request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"var mySIZE = uuid.v4();\r",
+									"console.log(mySIZE);\r",
+									"pm.environment.set(\"mySIZE\", mySIZE);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ValidateURL}}/?json=%5BJSON-code-to-validate%5D",
+							"host": [
+								"{{ValidateURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "json",
+									"value": "%5BJSON-code-to-validate%5D"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
